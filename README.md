@@ -24,6 +24,7 @@ To run the application in development, you can run these commands
 ```bash
 cd [my-app-name]
 composer start
+php -S localhost:8080 -t public
 ```
 
 Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
@@ -40,3 +41,11 @@ composer test
 ```
 
 That's it! Now go build something cool.
+
+
+ * Paying Company: paying_company
+
+## Resources
+
+* How to Connect to MySQL database in Slim framework 4
+`https://arjunphp.com/how-to-connect-to-mysql-database-in-slim-framework-4/`
