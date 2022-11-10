@@ -70,6 +70,8 @@ $app->addRoutingMiddleware();
 // Add Body Parsing Middleware
 $app->addBodyParsingMiddleware();
 
+// $app->setBasePath('/home/j8o3ur2b78o7/public_html/formulario.alturagastronomica.com');
+
 // Add Error Middleware
 $errorMiddleware = $app->addErrorMiddleware($displayErrorDetails, $logError, $logErrorDetails);
 $errorMiddleware->setDefaultErrorHandler($errorHandler);

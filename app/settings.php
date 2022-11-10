@@ -23,19 +23,20 @@ return function (ContainerBuilder $containerBuilder) {
                 ],
                 'db' => [
                     'driver' => 'mysql',
-                    'host' => 'localhost',
-                    'username' => 'root',
+                    'host' => '127.0.0.1',
+                    'port' => 3306,
                     'database' => 'formularie-01',
-                    'password' => '',
+                    'username' => 'formularie',
+                    'password' => 'FH6dUU(8U*-cGSNE',
                     'charset' => 'utf8mb4',
-                    'collation' => 'utf8mb4_unicode_ci',
+                    'collation' => 'utf8mb4_general_ci',
                     'flags' => [
                         // Turn off persistent connections
-                        PDO::ATTR_PERSISTENT => false,
+                        PDO::ATTR_PERSISTENT => true,
                         // Enable exceptions
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                         // Emulate prepared statements
-                        PDO::ATTR_EMULATE_PREPARES => true,
+                        PDO::ATTR_EMULATE_PREPARES => false,
                         // Set default fetch mode to array
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                     ],

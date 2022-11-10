@@ -27,19 +27,25 @@ return function (ContainerBuilder $containerBuilder) {
             return $logger;
         },
         PDO::class => function (ContainerInterface $c) {
-
+            // Database connection
             $settings = $c->get(SettingsInterface::class);
 
             $dbSettings = $settings->get('db');
 
             $host = $dbSettings['host'];
+            $port = $dbSettings['port'];
             $dbname = $dbSettings['database'];
             $username = $dbSettings['username'];
             $password = $dbSettings['password'];
             $charset = $dbSettings['charset'];
             $flags = $dbSettings['flags'];
-            $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
-            return new PDO($dsn, $username, $password);
+            $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
+            $conn = new PDO($dsn, $username, $password);
+
+            foreach($flags as $key => $value) {
+                $conn->setAttribute($key, $value);
+            }
+            return $conn;
         },
     ]);
 };
